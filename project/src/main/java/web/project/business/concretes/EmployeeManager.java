@@ -13,6 +13,7 @@ import web.project.core.results.SuccessDataResult;
 import web.project.core.results.SuccessResult;
 import web.project.dataAccess.abstracts.EmployeeDao;
 import web.project.entities.concretes.Employee;
+import web.project.entities.dtos.EmployeeWithCompanyDto;
 
 @Service
 public class EmployeeManager implements EmployeeService{
@@ -53,5 +54,11 @@ public class EmployeeManager implements EmployeeService{
 	public Result delete(int employeeId) {
 		this.employeeDao.deleteById(employeeId);
 		return new SuccessResult("Çalışan silindi");
+	}
+
+	@Override
+	public DataResult<List<EmployeeWithCompanyDto>> getEmployeeWithCompanyDetails() {
+		return new SuccessDataResult<List<EmployeeWithCompanyDto>>
+		(this.employeeDao.getEmployeeWithCompanyDetails(),"Data listelendi.");
 	}
 }

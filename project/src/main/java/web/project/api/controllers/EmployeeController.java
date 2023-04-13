@@ -7,6 +7,7 @@ import web.project.business.abstracts.EmployeeService;
 import web.project.core.results.DataResult;
 import web.project.core.results.Result;
 import web.project.entities.concretes.Employee;
+import web.project.entities.dtos.EmployeeWithCompanyDto;
 
 import java.util.List;
 
@@ -46,4 +47,9 @@ public class EmployeeController {
     public Result delete(@RequestParam int employeeId) {
         return this.employeeService.delete(employeeId);
     }
+    
+    @GetMapping("/getEmployeeWithCompanyDetails")
+	public DataResult<List<EmployeeWithCompanyDto>> getEmployeeWithCompanyDetails(){
+		return this.employeeService.getEmployeeWithCompanyDetails();
+	}
 }

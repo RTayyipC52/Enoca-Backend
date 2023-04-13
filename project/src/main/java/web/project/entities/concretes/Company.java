@@ -23,6 +23,9 @@ public class Company {
 	@Column(name = "company_id")
 	private int companyId;
 	
+	@Column(name = "company_name")
+	private String companyName;
+	
 	@Column(name = "name")
 	private String name;
 	
