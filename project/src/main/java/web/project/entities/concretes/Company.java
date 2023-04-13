@@ -1,5 +1,7 @@
 package web.project.entities.concretes;
 
+import java.util.List;
+
 import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -34,7 +36,7 @@ public class Company {
 	private int numberOfEmployees;
 	
 	@JsonIgnore
-    @OneToOne(mappedBy = "company")
-    private Employee employee;
+    @OneToMany(mappedBy = "company")
+    private List<Employee> employees;
 }
 
